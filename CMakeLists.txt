@@ -7,7 +7,11 @@ project(grid_map_samples)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  grid_map_ros
+  grid_map_cv
+)
 find_package(OpenCV REQUIRED) #追加
 
 ## System dependencies are found with CMake's conventions
@@ -114,7 +118,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
 # include
-# ${catkin_INCLUDE_DIRS}
+ ${catkin_INCLUDE_DIRS}
  ${OpenCV_INCLUDE_DIRS}
 )
 
@@ -206,4 +210,5 @@ include_directories(
 add_executable(show_image src/show_image.cpp)
 target_link_libraries(show_image
   ${OpenCV_LIBRARIES} #追加
+  ${catkin_LIBRARIES}
 )
