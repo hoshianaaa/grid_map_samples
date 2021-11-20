@@ -11,6 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   grid_map_ros
   grid_map_cv
+  sensor_msgs
+  cv_bridge
 )
 find_package(OpenCV REQUIRED) #追加
 
